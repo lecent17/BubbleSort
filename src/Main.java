@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 class BubbleSort {
 
     BubbleSort (int arr[]) {
@@ -7,7 +9,7 @@ class BubbleSort {
     //вывод исходного массива
     void outputArray (int arr[]) {
         String outArray = "Исходный массив: ";
-        for (int x = 0; x<arr.length; x++) {
+        for (int x = 0; x < arr.length; x++) {
             outArray += arr[x] + " ";
         }
         System.out.println(outArray);
@@ -31,7 +33,7 @@ class BubbleSort {
     //вывод отсортированного массива
     void outputSortedArray(int arr[]) {
         String sortArray = "Отсортированный массив: ";
-        for (int x = 0; x<arr.length; x++) {
+        for (int x = 0; x < arr.length; x++) {
             sortArray += arr[x] + " ";
         }
         System.out.println(sortArray);
@@ -40,7 +42,23 @@ class BubbleSort {
 
 public class Main {
     public static void main(String[] args) {
-        int[] s = {443,4, 535, 3, 5, 67, 78, 1, 0, 525, 552525267, 737};
-        BubbleSort array = new BubbleSort(s);
+
+        //обьвление необходимых переменных
+        Scanner requestData = new Scanner(System.in);
+        int amountElements, numbers;
+
+        //запрос размера массива и выделение памяти под него
+        System.out.println("Сколько чисел вы хотите добавить в массив?");
+        amountElements = requestData.nextInt();
+        int[] array = new int[amountElements];
+
+        //заполнение массива пользовательскими значениями
+        System.out.println("Поочередно введите числа которые должны попасть в массив: ");
+        for (int x = 0; x < amountElements; x++) {
+            numbers = requestData.nextInt();
+            array[x] = numbers;
+        }
+
+        BubbleSort array1 = new BubbleSort(array);
     }
 }
