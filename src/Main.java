@@ -39,7 +39,7 @@ class BubbleSort {
 
 public class Main {
     public static void main(String[] args) {
-        BubbleSort x = new BubbleSort();
-        x.bubbleSortArray();
+        BubbleSort array = new BubbleSort();
+        array.bubbleSortArray();
     }
 }
