@@ -42,14 +42,14 @@ class BubbleSort {
 
 public class Main {
     public static void main(String[] args) {
-
-        //обьвление необходимых переменных
         Scanner requestData = new Scanner(System.in);
         int amountElements, numbers;
 
         //запрос размера массива и выделение памяти под него
-        System.out.println("Сколько чисел вы хотите добавить в массив?");
-        amountElements = requestData.nextInt();
+        do {
+            System.out.println("Сколько чисел вы хотите добавить в массив?");
+            amountElements = requestData.nextInt();
+        } while (amountElements <= 0);
         int[] array = new int[amountElements];
 
         //заполнение массива пользовательскими значениями
@@ -58,7 +58,6 @@ public class Main {
             numbers = requestData.nextInt();
             array[x] = numbers;
         }
-
         BubbleSort array1 = new BubbleSort(array);
     }
 }
