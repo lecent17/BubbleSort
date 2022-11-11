@@ -1,25 +1,45 @@
-public class Main {
-    public static void main(String[] args) {
-        int[] arr = {443,4, 535, 3, 5, 67, 78, 1, 0, 525, 552525267, 737};
+class BubbleSort {
 
-        System.out.println("Исходный массив: ");
+    //необходимые переменные
+    long[] arr = {443,4, 535, 3, 5, 67, 78, 1, 0, 525, 552525267, 737};
+
+    //вывод исходного массива
+    void outputArray () {
+        String outArray = "Исходный массив: ";
         for (int x = 0; x<arr.length; x++) {
-            System.out.print(arr[x] + " ");
+            outArray += arr[x] + " ";
         }
+        System.out.println(outArray);
+    }
 
-        for (int x = 1; x < arr.length; x++) {
-            for (int j = 0; j < arr.length-1; j++) {
-                if (arr[j] > arr[j+1]){
-                    int temp = arr[j+1];
-                    arr[j+1] = arr[j];
+    //сортировка массива пузырьком
+    void bubbleSortArray() {
+        outputArray();
+        for (int x = 0; x < arr.length; x++) {
+            for (int j = 0; j < arr.length - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    long temp = arr[j + 1];
+                    arr[j + 1] = arr[j];
                     arr[j] = temp;
                 }
             }
         }
+        outputSortedArray();
+    }
 
-        System.out.println("\n\nОтсортированный массив: ");
+    //вывод отсортированного массива
+    void outputSortedArray() {
+        String sortArray = "Отсортированный массив: ";
         for (int x = 0; x<arr.length; x++) {
-            System.out.print(arr[x] + " ");
+            sortArray += arr[x] + " ";
         }
+        System.out.println(sortArray);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        BubbleSort x = new BubbleSort();
+        x.bubbleSortArray();
     }
 }
