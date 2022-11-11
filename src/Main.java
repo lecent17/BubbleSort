@@ -42,6 +42,10 @@ class BubbleSort {
 
 public class Main {
     public static void main(String[] args) {
+        BubbleSort array1 = new BubbleSort(requestUserData());
+    }
+
+    static int[] requestUserData() {
         Scanner requestData = new Scanner(System.in);
         int amountElements, numbers;
 
@@ -58,6 +62,7 @@ public class Main {
             numbers = requestData.nextInt();
             array[x] = numbers;
         }
-        BubbleSort array1 = new BubbleSort(array);
+
+        return array;
     }
 }
