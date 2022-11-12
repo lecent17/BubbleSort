@@ -2,41 +2,38 @@ import java.util.Scanner;
 
 class BubbleSort {
 
+    int[] array;
+
     BubbleSort (int arr[]) {
-        bubbleSortArray(arr);
+        array = arr;
+        bubbleSortArray(this);
     }
 
     //вывод исходного массива
-    void outputArray (int arr[]) {
-        String outArray = "Исходный массив: ";
-        for (int x = 0; x < arr.length; x++) {
-            outArray += arr[x] + " ";
-        }
-        System.out.println(outArray);
+    void outputArray (BubbleSort element) {
+        System.out.println("\nИсходный массив: ");
+        for (int x : element.array) System.out.print(x + " ");
     }
 
     //сортировка массива пузырьком
-    void bubbleSortArray(int arr[]) {
-        outputArray(arr);
-        for (int x = 0; x < arr.length; x++) {
-            for (int j = 0; j < arr.length-1; j++) {
-                if (arr[j] > arr[j + 1]) {
-                    int temp = arr[j + 1];
-                    arr[j + 1] = arr[j];
-                    arr[j] = temp;
+    void bubbleSortArray(BubbleSort element) {
+        outputArray(this);
+        for (int x = 0; x < element.array.length; x++) {
+            for (int j = 0; j < element.array.length-1; j++) {
+                if (element.array[j] > element.array[j + 1]) {
+                    int temp = element.array[j + 1];
+                    element.array[j + 1] = element.array[j];
+                    element.array[j] = temp;
                 }
             }
         }
-        outputSortedArray(arr);
+        outputSortedArray(this);
     }
 
     //вывод отсортированного массива
-    void outputSortedArray(int arr[]) {
-        String sortArray = "Отсортированный массив: ";
-        for (int x = 0; x < arr.length; x++) {
-            sortArray += arr[x] + " ";
-        }
-        System.out.println(sortArray);
+    void outputSortedArray(BubbleSort element) {
+        System.out.println("\nОтсортированный массив: ");
+        for (int x : element.array) System.out.print(x + " ");
     }
 }
 
