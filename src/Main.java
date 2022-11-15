@@ -2,46 +2,48 @@ import java.util.Scanner;
 
 class BubbleSort {
 
-    int[] array;
+    int[] Array;
 
-    BubbleSort (int arr[]) {
-        array = arr;
+    BubbleSort (int UserArray[]) {
+        Array = UserArray;
         bubbleSortArray(this);
-    }
-
-    //вывод исходного массива
-    void outputArray (BubbleSort element) {
-        System.out.println("\nИсходный массив: ");
-        for (int x : element.array) System.out.print(x + " ");
     }
 
     //сортировка массива пузырьком
     void bubbleSortArray(BubbleSort element) {
         outputArray(this);
-        for (int x = 0; x < element.array.length; x++) {
-            for (int j = 0; j < element.array.length-1; j++) {
-                if (element.array[j] > element.array[j + 1]) {
-                    int temp = element.array[j + 1];
-                    element.array[j + 1] = element.array[j];
-                    element.array[j] = temp;
+        for (int step = 0; step < element.Array.length; step++) {
+            for (int index = 0; index < element.Array.length-1; index++) {
+                if (element.Array[index] > element.Array[index + 1]) {
+                    int temp = element.Array[index + 1];
+                    element.Array[index + 1] = element.Array[index];
+                    element.Array[index] = temp;
                 }
             }
         }
         outputSortedArray(this);
     }
 
+    //вывод исходного массива
+    void outputArray (BubbleSort element) {
+        System.out.println("\nИсходный массив: ");
+        for (int ArrayElement : element.Array) System.out.print(ArrayElement + " ");
+    }
+
     //вывод отсортированного массива
     void outputSortedArray(BubbleSort element) {
         System.out.println("\nОтсортированный массив: ");
-        for (int x : element.array) System.out.print(x + " ");
+        for (int ArrayElement : element.Array) System.out.print(ArrayElement + " ");
     }
 }
 
 public class Main {
     public static void main(String[] args) {
-        BubbleSort array1 = new BubbleSort(requestUserData());
+        //создание тестового обьекта
+        BubbleSort TestArray = new BubbleSort(requestUserData());
     }
 
+    //запрос пользовательских данных
     static int[] requestUserData() {
         Scanner requestData = new Scanner(System.in);
         int amountElements, numbers;
