@@ -1,39 +1,48 @@
+//необходимые пакеты
 import java.util.Scanner;
 
 class BubbleSort {
 
-    int[] Array;
+    //необходимые переменные
+    private int[] sourceArray;
+    private int[] sortArray;
 
+
+    //конструктор класса
     BubbleSort (int UserArray[]) {
-        Array = UserArray;
+        sourceArray = UserArray;
         bubbleSortArray(this);
     }
 
+
     //сортировка массива пузырьком
-    void bubbleSortArray(BubbleSort element) {
+    void bubbleSortArray(BubbleSort obj) {
+        obj.sortArray = obj.sourceArray;
         outputArray(this);
-        for (int step = 0; step < element.Array.length; step++) {
-            for (int index = 0; index < element.Array.length-1; index++) {
-                if (element.Array[index] > element.Array[index + 1]) {
-                    int temp = element.Array[index + 1];
-                    element.Array[index + 1] = element.Array[index];
-                    element.Array[index] = temp;
+        for (int step = 0; step < obj.sortArray.length; step++) {
+            for (int index = 0; index < obj.sortArray.length-1; index++) {
+                if (obj.sortArray[index] > obj.sortArray[index + 1]) {
+                    int temp = obj.sortArray[index + 1];
+                    obj.sortArray[index + 1] = obj.sortArray[index];
+                    obj.sortArray[index] = temp;
                 }
             }
         }
         outputSortedArray(this);
     }
 
+
     //вывод исходного массива
-    void outputArray (BubbleSort element) {
+    void outputArray (BubbleSort obj) {
         System.out.println("\nИсходный массив: ");
-        for (int ArrayElement : element.Array) System.out.print(ArrayElement + " ");
+        for (int ArrayElement : obj.sortArray) System.out.print(ArrayElement + " ");
     }
 
+
     //вывод отсортированного массива
-    void outputSortedArray(BubbleSort element) {
+    void outputSortedArray(BubbleSort obj) {
         System.out.println("\nОтсортированный массив: ");
-        for (int ArrayElement : element.Array) System.out.print(ArrayElement + " ");
+        for (int ArrayElement : obj.sortArray) System.out.print(ArrayElement + " ");
     }
 }
 
